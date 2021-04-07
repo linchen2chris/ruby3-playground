@@ -1,8 +1,10 @@
-require "ruby3/playground/version"
+require 'ruby3/playground/version'
 
 module Ruby3
   module Playground
-    class Error < StandardError; end
-    putc 'h'
+    class Error < StandardError
+    end
+  end
+  module Template
   end
 end

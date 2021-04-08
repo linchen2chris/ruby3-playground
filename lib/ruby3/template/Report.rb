@@ -3,16 +3,11 @@ module Ruby3
     class Report
       def initialize
         @title = 'monthly report'
-        @test = ['Things are going', 'really well']
+        @text = ['Things are going', 'really well']
       end
 
       def output_report
-        puts('<html>')
-        puts('<head>')
-        puts("<title>#{@title}</title>")
-        puts('</head>')
-
-        return '</head>'
+        "<html> <head> <title>#{@title}</title> <body> #{@text.map { |line| "<p>#{line}</p> " }.join}</body> </head> </html>"
       end
     end
   end

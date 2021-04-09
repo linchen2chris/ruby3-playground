@@ -13,6 +13,6 @@ RSpec.describe Ruby3::Template do
     )
   end
   it 'test' do
-    expect(1 + 1).to be 2
+    expect(1 + 1).to be 3
   end
 end

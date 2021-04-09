@@ -12,7 +12,4 @@ RSpec.describe Ruby3::Template do
       "#monthly report\nThings are going\nreally well\n"
     )
   end
-  it 'test' do
-    expect(1 + 1).to be 3
-  end
 end

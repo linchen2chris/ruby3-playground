@@ -1,5 +1,5 @@
 # Ruby3::Playground
-[![Ruby](https://github.com/linchen2chris/ruby3-playground/actions/workflows/master.yml/badge.svg)](https://github.com/linchen2chris/ruby3-playground/actions/workflows/master.yml)
+[![Ruby](https://github.com/linchen2chris/ruby3-playground/actions/workflows/ruby.yml/badge.svg)](https://github.com/linchen2chris/ruby3-playground/actions/workflows/ruby.yml)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruby3/playground`. To experiment with that code, run `bin/console` for an interactive prompt.
 

@@ -7,4 +7,6 @@ module Ruby3
   end
   module Template
   end
+  module Delegate
+  end
 end

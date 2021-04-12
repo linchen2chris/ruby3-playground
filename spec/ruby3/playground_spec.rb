@@ -176,5 +176,19 @@ RSpec.describe Ruby3::Playground do
       hello = lambda { 'hi' }
       expect(hello.call).to eq('hi')
     end
+
+    it 'with params' do
+      hello = lambda { |name| "hi, #{name}" }
+      expect(hello.call('chris')).to eq 'hi, chris'
+    end
+
+    it 'call inside function' do
+      def hello_bot
+        hi = yield('chris')
+        "#{hi}, what can I do for you?"
+      end
+      result = hello_bot { |name| "hi, #{name}" }
+      expect(result).to eq('hi, chris, what can I do for you?')
+    end
   end
 end

@@ -170,4 +170,11 @@ RSpec.describe Ruby3::Playground do
       @monitor.synchronize { testThread }
     end
   end
+
+  context 'proc' do
+    it 'works' do
+      hello = lambda { 'hi' }
+      expect(hello.call).to eq('hi')
+    end
+  end
 end

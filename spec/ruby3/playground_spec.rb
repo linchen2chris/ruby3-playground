@@ -190,5 +190,14 @@ RSpec.describe Ruby3::Playground do
       result = hello_bot { |name| "hi, #{name}" }
       expect(result).to eq('hi, chris, what can I do for you?')
     end
+
+    it 'pass func as param' do
+      def hello_bot(&hi)
+        "#{hi.call('chris')}, what can I do for you?"
+      end
+      proc = lambda { |name| "hi, #{name}" }
+      result = hello_bot(&proc)
+      expect(result).to eq('hi, chris, what can I do for you?')
+    end
   end
 end

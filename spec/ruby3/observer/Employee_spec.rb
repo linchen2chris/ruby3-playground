@@ -5,8 +5,8 @@ RSpec.describe do
     employee = Employee.new('chris', 'senior Dev', 10)
     taxman = TaxMan.new
     payroll = Payroll.new
-    employee.add_observer(taxman)
-    employee.add_observer(payroll)
+    employee.register(taxman)
+    employee.register(payroll)
     employee.salary = 20
   end
 end

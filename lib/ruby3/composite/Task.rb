@@ -27,23 +27,3 @@ class MixTask < Task
     10.9
   end
 end
-
-class PrepareDoughTask < Task
-  def initialize
-    super('prepare_dough')
-    @subtask = []
-    add_subtask(AddFlourTask.new)
-    add_subtask(MixTask.new)
-  end
-
-  def add_subtask(task)
-    @subtask << task
-  end
-
-  def remove_task(task)
-    @subtask.delete(task)
-  end
-  def get_time_required
-    @subtask.reduce(0) { |sum, task| sum + task.get_time_required }
-  end
-end

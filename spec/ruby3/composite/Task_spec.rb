@@ -13,4 +13,14 @@ RSpec.describe do
     prepareDoughTask = PrepareDoughTask.new
     expect(prepareDoughTask.get_time_required).to eq(13.9)
   end
+
+  it 'check operator works' do
+    task = CompositeTask.new('composite')
+    task << AddFlourTask.new
+    middle = AddFlourTask.new
+    task << middle
+    task << AddFlourTask.new
+    expect(task[1]).to eq(middle)
+    expect(task.get_time_required).to eq(9)
+  end
 end

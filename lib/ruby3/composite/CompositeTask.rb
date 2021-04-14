@@ -14,6 +14,14 @@ class CompositeTask < Task
   def get_time_required
     @subtask.reduce(0) { |sum, task| sum + task.get_time_required }
   end
+
+  def <<(task)
+    @subtask << task
+  end
+
+  def [](index)
+    @subtask[index]
+  end
 end
 
 class PrepareDoughTask < CompositeTask

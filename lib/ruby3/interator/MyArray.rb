@@ -1,0 +1,17 @@
+class MyArray
+  attr_accessor :data
+
+  def initialize(data)
+    @data = data
+  end
+
+  def my_map
+    i = 0
+    result = []
+    while i < @data.length
+      result << yield(@data[i])
+      i += 1
+    end
+    return result
+  end
+end

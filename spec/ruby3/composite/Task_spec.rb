@@ -3,15 +3,15 @@ require 'ruby3/composite/CompositeTask'
 
 RSpec.describe do
   it 'get composite time' do
-    compositeTask = CompositeTask.new('prepare_dough')
-    compositeTask.add_subtask(AddFlourTask.new)
-    compositeTask.add_subtask(MixTask.new)
-    expect(compositeTask.get_time_required).to eq(13.9)
+    composite_task = CompositeTask.new('prepare_dough')
+    composite_task.add_subtask(AddFlourTask.new)
+    composite_task.add_subtask(MixTask.new)
+    expect(composite_task.get_time_required).to eq(13.9)
   end
 
   it 'generate PrepareDoughTask directly' do
-    prepareDoughTask = PrepareDoughTask.new
-    expect(prepareDoughTask.get_time_required).to eq(13.9)
+    prepare_dough_task = PrepareDoughTask.new
+    expect(prepare_dough_task.get_time_required).to eq(13.9)
   end
 
   it 'check operator works' do

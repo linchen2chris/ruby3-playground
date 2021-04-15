@@ -1,8 +1,14 @@
 class MyArray
   attr_accessor :data
 
+  include Enumerable
+
   def initialize(data)
     @data = data
+  end
+
+  def each(&block)
+    @data.each(&block)
   end
 
   def my_map

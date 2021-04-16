@@ -198,6 +198,10 @@ RSpec.describe Ruby3::Playground do
       proc = lambda { |name| "hi, #{name}" }
       result = hello_bot(&proc)
       expect(result).to eq('hi, chris, what can I do for you?')
+      # def hihi(name)
+      #   "HiHi, #{name}"
+      # end
+      # expect(hello_bot(&hihi)).to eq('HiHi, chris, what can I do for ')
     end
   end
 end

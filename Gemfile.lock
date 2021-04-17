@@ -7,6 +7,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.4.4)
+    madeleine (0.9.0)
     rake (12.3.3)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -27,6 +28,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
+  madeleine
   rake (~> 12.0)
   rspec (~> 3.0)
   ruby3-playground!

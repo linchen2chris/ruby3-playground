@@ -1,7 +1,7 @@
 # require 'rubygems'
-# require 'madeleine'
+require 'madeleine'
 
-class Employee
+class Employee2
   attr_accessor :name, :number
 
   def initialize(name, number)
@@ -52,7 +52,7 @@ class FindEmployee
   def initialize(number)
     @number = number
   end
-  def execute
+  def execute(system)
     system.find(@number)
   end
 end

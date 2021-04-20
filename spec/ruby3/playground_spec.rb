@@ -17,7 +17,7 @@ RSpec.describe Ruby3::Playground do
     i = 2
     until i >= 4
       puts("i=#{i}")
-      i = i + 1
+      i += 1
     end
     [1, 3, 4].each { |x| expect(x).to be < 5 }
     expect('hello'[0]).to eq 'h'
@@ -37,21 +37,21 @@ RSpec.describe Ruby3::Playground do
       def initialize(price)
         @price = price
       end
-      def price
-        @price
-      end
+
+      attr_reader :price
     end
+
     class Toy < Product
       def initialize(owner, price = 0)
         super(price)
         @owner = owner
       end
+
       def sell(buyer)
         @owner = buyer
       end
-      def owner
-        @owner
-      end
+
+      attr_reader :owner
     end
     it 'class demo' do
       toycar = Toy.new('chris')
@@ -72,18 +72,19 @@ RSpec.describe Ruby3::Playground do
       def say_hi
         'hi'
       end
+
       def self_introduce
         "my name is #{name}, what can I do for you"
       end
     end
+
     class Waiter
       include Hello
       def initialize(name)
         @name = name
       end
-      def name
-        @name
-      end
+
+      attr_reader :name
     end
     it 'waiter should say hi' do
       waiter = Waiter.new('chris')
@@ -106,35 +107,33 @@ RSpec.describe Ruby3::Playground do
       expect { raise 'oops' }.to raise_error(RuntimeError, 'oops')
       expect { raise 'oops' }.to raise_error(RuntimeError, /op/)
       expect { raise 'oops' }.to raise_error(
-        an_instance_of(RuntimeError).and having_attributes(message: 'oops')
+        an_instance_of(RuntimeError).and(having_attributes(message: 'oops'))
       )
     end
 
     it 'catch error' do
       def errFn(fn)
-        begin
-          method(fn).call
-        rescue ZeroDivisionError
-          'catch zero error'
-          # rescue RuntimeError
-          #   'catch runtime error'
-        end
+        method(fn).call
+      rescue ZeroDivisionError
+        'catch zero error'
+        # rescue RuntimeError
+        #   'catch runtime error'
       end
 
       expect(
         errFn(
           def state
-            1 / 0
-          end
+        1 / 0
+        end
         )
       ).to eq 'catch zero error'
-      expect {
+      expect do
         errFn(
           def err
-            raise 'error'
-          end
+          raise 'error'
+        end
         )
-      }.to raise_error
+      end.to raise_error
     end
   end
 
@@ -144,14 +143,14 @@ RSpec.describe Ruby3::Playground do
       thread1 =
         Thread.new do
           sum = 0
-          1.upto(10) { |x| sum = sum + x }
+          1.upto(10) { |x| sum += x }
           sleep(5)
           puts "sum: #{sum}, #{Time.now}"
         end
       thread2 =
         Thread.new do
           product = 0
-          1.upto(10) { |x| product = product * x }
+          1.upto(10) { |x| product *= x }
           sleep(3)
           puts "product: #{product}, #{Time.now}"
         end
@@ -173,12 +172,12 @@ RSpec.describe Ruby3::Playground do
 
   context 'proc' do
     it 'works' do
-      hello = lambda { 'hi' }
+      hello = -> { 'hi' }
       expect(hello.call).to eq('hi')
     end
 
     it 'with params' do
-      hello = lambda { |name| "hi, #{name}" }
+      hello = ->(name) { "hi, #{name}" }
       expect(hello.call('chris')).to eq 'hi, chris'
     end
 
@@ -195,7 +194,7 @@ RSpec.describe Ruby3::Playground do
       def hello_bot(&hi)
         "#{hi.call('chris')}, what can I do for you?"
       end
-      proc = lambda { |name| "hi, #{name}" }
+      proc = ->(name) { "hi, #{name}" }
       result = hello_bot(&proc)
       expect(result).to eq('hi, chris, what can I do for you?')
       # def hihi(name)

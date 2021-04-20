@@ -5,8 +5,10 @@ module Ruby3
     class Error < StandardError
     end
   end
+
   module Template
   end
+
   module Strategy
   end
 end

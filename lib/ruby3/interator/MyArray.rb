@@ -18,6 +18,6 @@ class MyArray
       result << yield(@data[i])
       i += 1
     end
-    return result
+    result
   end
 end

@@ -8,21 +8,25 @@ class Employee2
     @name = name
     @number = number
   end
-  def to_s()
+
+  def to_s
     "name: #{@name}, number: #{@number}"
   end
 end
 
 class EmployeeManager
-  def initialize()
+  def initialize
     @employees = []
   end
+
   def add_employee(e)
     @employees[e.number] = e
   end
+
   def remove(number)
     @employees.remove(number)
   end
+
   def find(number)
     @employees[number]
   end
@@ -52,6 +56,7 @@ class FindEmployee
   def initialize(number)
     @number = number
   end
+
   def execute(system)
     system.find(@number)
   end

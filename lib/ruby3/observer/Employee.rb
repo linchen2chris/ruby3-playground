@@ -10,8 +10,9 @@ class Employee
     @title = title
     @salary = salary
   end
+
   def register(observer)
-    self.add_observer(observer)
+    add_observer(observer)
   end
 
   def salary=(new_salary)

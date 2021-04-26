@@ -1,6 +1,7 @@
 require 'ruby3/factory/Habitat'
 require 'ruby3/factory/Pond'
 require 'ruby3/factory/Jungle'
+
 RSpec.describe do
   it 'works' do
     pond = Habitat.new(1, 1, PondFactory.new)

@@ -1,16 +1,20 @@
 class Computer
-  attr_accessor :motherboard
   def motherboard
     @motherboard = Motherboard.new
+    @motherboard
   end
 end
 class Motherboard
-  attr_accessor :cpu, :memory
-  def cpu(cpu)
+  def set_cpu(cpu)
+    puts cpu.to_string
     @cpu = cpu
   end
   def memory(mem)
     @memory = mem
+  end
+  def cpu
+    puts @cpu.to_string
+    @cpu
   end
 end
 class CPU
@@ -29,12 +33,11 @@ class Memory
 end
 
 class Computerbuilder
-  attr_reader :computer
   def initialize
     @computer = Computer.new
   end
   def add_cpu
-    @computer.motherboard.cpu(CPU.new)
+    @computer.motherboard.set_cpu(CPU.new)
   end
   def add_memory(size_in_mb)
     @computer.motherboard.memory(Memory.new(size_in_mb))

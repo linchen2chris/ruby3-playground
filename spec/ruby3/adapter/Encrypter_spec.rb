@@ -5,7 +5,7 @@ class Encrypter
   end
 end
 RSpec.describe do
-  context 'encrypt' do
+  xcontext 'encrypt' do
     encrypter = Encrypter.new('key')
 
     it 'encrypt successfully' do
@@ -25,7 +25,7 @@ RSpec.describe do
     end
   end
 
-  context 'modify class and object' do
+  xcontext 'modify class and object' do
     it 'modify class' do
       expect(encrypter.say).to eql 'hello'
     end

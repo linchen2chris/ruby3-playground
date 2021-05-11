@@ -1,0 +1,15 @@
+* notes
+
+** repl
+*** reading
+ 		:LOGBOOK:
+ 		CLOCK: [2021-05-11 Tue 15:58]--[2021-05-11 Tue 16:06] =>  0:08
+ 		:END:
+		 解释器和分析器
+		 AST， racc， yacc。XML和YML
+
+*** coding
+		:LOGBOOK:
+		CLOCK: [2021-05-11 Tue 16:06]--[2021-05-11 Tue 16:30] =>  0:24
+		:END:
+			

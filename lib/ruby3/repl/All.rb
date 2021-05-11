@@ -1,0 +1,2 @@
+class All < Express
+end
